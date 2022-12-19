@@ -1,0 +1,6 @@
+test.in
+test.out
+in/
+out/
+.vscode/
+*.o

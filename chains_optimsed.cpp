@@ -43,12 +43,13 @@ int main() {
 	vector<int> match (n, -1);
 	vector<bool> visited (n, 0);
 
-	int finished = false;
-	while (!finished) {
+	int repeat = 1;
+	while (repeat) {
 
+		repeat = 0;
 		for (int node : left)
 			if (match[node] == -1 && !visited[node])
-				finished |= pairup(node, visited, adj, match);
+				repeat |= pairup(node, visited, adj, match);
 
 		fill(visited.begin(), visited.end(), 0);
 	}
