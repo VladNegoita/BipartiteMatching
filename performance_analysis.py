@@ -1,11 +1,10 @@
-import os
 import subprocess
 from time import time
 import numpy as np
 from matplotlib import pyplot as plt
 
 TEST_CNT = 62
-algorithms = ["Hopcroft_Karp_Karzanov", "chains_optimised", "chains_simple"] #, "Edmonds_Karp"]
+algorithms = ["Hopcroft_Karp_Karzanov", "chains_optimised", "chains_simple" , "Edmonds_Karp"]
 times = np.zeros([4, 1 + TEST_CNT])
 
 subprocess.run(["make"])
@@ -29,8 +28,8 @@ for i, algo in enumerate(algorithms):
 
 subprocess.run(["make",  "clean"])
 
-# test distribution
-# 1 - 21 sparse E ^ V
+# tests distribution
+# 1 - 21 sparse E ~ V
 # 22 - 30 dense E ~ V ^ 2
 # 31 - 44 E ~ V ^ 3/2
 # 45 - 62 E ~ V log V
@@ -38,10 +37,10 @@ subprocess.run(["make",  "clean"])
 nodes = [0, 5, 20, 50, 100, 250, 300, 350, 400, 500, 750, 800, 1000, 2000, 2500, 4000, 5000, 10000, 20000, 40000, 45000, 50000]
 
 # sparse graph
-plt.scatter(nodes[:22], times[0][:22], c="r", label=algorithms[0])
-plt.scatter(nodes[:22], times[1][:22], c="g", label=algorithms[1])
-plt.scatter(nodes[:22], times[2][:22], c="b", label=algorithms[2])
-# plt.scatter(nodes[:22], times[3][:22], c="y", label=algorithms[3])
+plt.plot(nodes[:22], times[0][:22], c="r", label=algorithms[0])
+plt.plot(nodes[:22], times[1][:22], c="g", label=algorithms[1])
+plt.plot(nodes[:22], times[2][:22], c="b", label=algorithms[2])
+plt.plot(nodes[:22], times[3][:22], c="y", label=algorithms[3])
 plt.xlabel("nodes")
 plt.ylabel("time(s)")
 plt.title("Sparse Graph")
@@ -49,10 +48,10 @@ plt.legend()
 plt.show()
 
 # dense graph
-plt.scatter(nodes[1:10], times[0][22:31], c="r", label=algorithms[0])
-plt.scatter(nodes[1:10], times[1][22:31], c="g", label=algorithms[1])
-plt.scatter(nodes[1:10], times[2][22:31], c="b", label=algorithms[2])
-# plt.scatter(nodes[1:10], times[3][22:31], c="y", label=algorithms[3])
+plt.plot(nodes[1:10], times[0][22:31], c="r", label=algorithms[0])
+plt.plot(nodes[1:10], times[1][22:31], c="g", label=algorithms[1])
+plt.plot(nodes[1:10], times[2][22:31], c="b", label=algorithms[2])
+plt.plot(nodes[1:10], times[3][22:31], c="y", label=algorithms[3])
 plt.xlabel("nodes")
 plt.ylabel("time(s)")
 plt.title("Dense Graph")
@@ -60,10 +59,10 @@ plt.legend()
 plt.show()
 
 # less dense graph
-plt.scatter(nodes[1:15], times[0][31:45], c="r", label=algorithms[0])
-plt.scatter(nodes[1:15], times[1][31:45], c="g", label=algorithms[1])
-plt.scatter(nodes[1:15], times[2][31:45], c="b", label=algorithms[2])
-# plt.scatter(nodes[1:15], times[3][31:45], c="y", label=algorithms[3])
+plt.plot(nodes[1:15], times[0][31:45], c="r", label=algorithms[0])
+plt.plot(nodes[1:15], times[1][31:45], c="g", label=algorithms[1])
+plt.plot(nodes[1:15], times[2][31:45], c="b", label=algorithms[2])
+plt.plot(nodes[1:15], times[3][31:45], c="y", label=algorithms[3])
 plt.xlabel("nodes")
 plt.ylabel("time(s)")
 plt.title("E ~ V * sqrt(V) Graph")
@@ -71,10 +70,10 @@ plt.legend()
 plt.show()
 
 # log-sparse graph
-plt.scatter(nodes[1:19], times[0][45:63], c="r", label=algorithms[0])
-plt.scatter(nodes[1:19], times[1][45:63], c="g", label=algorithms[1])
-plt.scatter(nodes[1:19], times[2][45:63], c="b", label=algorithms[2])
-# plt.scatter(nodes[1:19], times[3][45:63], c="y", label=algorithms[3])
+plt.plot(nodes[1:19], times[0][45:63], c="r", label=algorithms[0])
+plt.plot(nodes[1:19], times[1][45:63], c="g", label=algorithms[1])
+plt.plot(nodes[1:19], times[2][45:63], c="b", label=algorithms[2])
+plt.plot(nodes[1:19], times[3][45:63], c="y", label=algorithms[3])
 plt.xlabel("nodes")
 plt.ylabel("time(s)")
 plt.title("E ~ V * log(V) Graph")
