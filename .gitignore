@@ -4,3 +4,4 @@ in/
 out/
 .vscode/
 *.o
+*.txt

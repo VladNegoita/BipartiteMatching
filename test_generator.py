@@ -45,7 +45,7 @@ def generate_test(nodes_count, edges_count, file_name):
 	f.close()
 
 
-input_dimension = [5, 20, 50, 100, 250, 300, 400, 500, 800, 1000, 2000, 4000, 5000, 10000, 20000, 40000, 50000]
+input_dimension = [5, 20, 50, 100, 250, 300, 350, 400, 500, 750, 800, 1000, 2000, 2500, 4000, 5000, 10000, 20000, 40000, 45000, 50000]
 
 file_no = 1
 for type_index in range(1, 5):
@@ -56,9 +56,8 @@ for type_index in range(1, 5):
 			continue
 
 		generate_test(nodes_count, edges_count, file_name)
+		print(str(file_no) + ": " + str(type_index) + " " + str(nodes_count))
 		file_no += 1
 
 file_name = "test" + str(file_no) + ".in"
 generate_test(NODES_COUNT_MAX, EDGES_COUNT_MAX, file_name)
-
-print(file_no)
