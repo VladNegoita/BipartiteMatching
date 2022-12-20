@@ -1,5 +1,4 @@
 test.in
 test.out
 .vscode/
-*.o
 *.txt
