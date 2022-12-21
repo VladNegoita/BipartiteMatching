@@ -49,3 +49,4 @@ The input files located in `in/` were generated using the script `test_generator
 
 You can find this project on [Github](https://github.com/VladNegoita/BipartiteMatching).
 
+###### Copyright Vlad Negoiță vlad1negoita@gmail.com
