@@ -31,7 +31,13 @@ The source code (programs that solve the bipartite matching problem) are:
 3. `chains_optimised.cpp`
 4. `chains_simple.cpp`
 
-`Makefile` compiles the source code and enables running each algoritm on `test.in` and writes the solution in `test.out`.
+`Makefile` compiles the source code and enables running each algoritm on `test.in` and writes the solution in `test.out`. It has the following rules:
+
+1. `run-best` - runs Hopcroft_Karp_Karzanov
+2. `run-pX` - runs each algorithm (X is the corresponding number)
+3. `build` - compiles all the `.cpp` files (the algorithms and the `check.cpp`)
+4. `pack` - packs the project (for sending via network)
+5. `clean` - deletes the executables
 
 The files responsible for checking the answer are:
 
