@@ -24,7 +24,7 @@ run-p4: Edmonds_Karp
 build: $(TARGETS)
 
 pack:
-	zip -FSr nume.zip Readme.md Makefile *.cpp *.py *.pdf
+	zip -FSr vlad_andrei.negoita.zip Readme.md Makefile *.cpp *.py *.pdf in out
 
 clean:
 	rm -f $(TARGETS)
